@@ -1,4 +1,3 @@
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
       google.load("visualization", "1.1", {packages:["corechart"]});
       google.setOnLoadCallback(drawStuff);
@@ -25,24 +24,21 @@
   ["Section average", 59, 52, 65, ''  ]
         ]);
         var options = {
-          title: 'Track feedback',
           width: 900,
           legend: { position: 'none' },
-          chart: { title: 'Track feedback',
-                   subtitle: 'Percent happiness' },
           bars: 'vertical', // Required for Material Bar Charts.
           axes: {
             x: {
               0: { side: 'top', label: 'Percentage'} // Top x-axis.
             }
           },
-          bar: { groupWidth: "70%" },
+          bar: { groupWidth: "90%" },
           hAxis: { ticks: [{v:0, f:'Very unhappy'}, {v:33.33, f:'Somewhat unhappy'}, {v:66.66, f:'Somewhat happy'}, {v:100, f:'Very happy'}],
           	   format: 'percent' }
         };
-        var chart = new google.visualization.BarChart(document.getElementById('top_x_div'));
+        var chart = new google.visualization.BarChart(document.getElementById('venuefeedback'));
         chart.draw(data, options);
       };
     </script>
 
-    <div id="top_x_div" style="width: 900px; height: 900px;"></div>
+    <div id="venuefeedback" style="width: 900px; height: 900px;"></div>
