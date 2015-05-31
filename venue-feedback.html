@@ -1,0 +1,48 @@
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawStuff);
+      function drawStuff() {
+        var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Area'); // Implicit domain label col.
+		data.addColumn('number', 'Happiness'); // Implicit series 1 data col.
+		data.addColumn({type:'number', role:'interval'});  // interval role col.
+		data.addColumn({type:'number', role:'interval'});  // interval role col.
+		data.addColumn({type:'string', role:'style'});
+		data.addRows([
+  ["Getting there", 79, 73, 85, ''  ],
+  ["Finding way around", 75, 69, 81, ''  ],
+  ["Social spaces", 70, 64, 76, ''  ],
+  ["Session spaces", 78, 72, 84, ''  ],
+  ["Noise levels", 68, 62, 74, ''  ],
+  ["Wifi and mobile signal", 54, 48, 60, ''  ],
+  ["Food quality", 58, 51, 65, ''  ],
+  ["Food prices", 35, 29, 41, ''  ],
+  ["Drinks quality", 58, 51, 65, ''  ],
+  ["Drink prices", 28, 21, 35, ''  ],
+  ["Food and drink service", 46, 40, 52, ''  ],
+  ["Dietary requirements", 53, 43, 63, ''  ],
+  ["Section average", 59, 52, 65, ''  ]
+        ]);
+        var options = {
+          title: 'Track feedback',
+          width: 900,
+          legend: { position: 'none' },
+          chart: { title: 'Track feedback',
+                   subtitle: 'Percent happiness' },
+          bars: 'vertical', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Percentage'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "70%" },
+          hAxis: { ticks: [{v:0, f:'Very unhappy'}, {v:33.33, f:'Somewhat unhappy'}, {v:66.66, f:'Somewhat happy'}, {v:100, f:'Very happy'}],
+          	   format: 'percent' }
+        };
+        var chart = new google.visualization.BarChart(document.getElementById('top_x_div'));
+        chart.draw(data, options);
+      };
+    </script>
+
+    <div id="top_x_div" style="width: 900px; height: 900px;"></div>
