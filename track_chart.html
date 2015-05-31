@@ -60,7 +60,9 @@
               0: { side: 'top', label: 'Percentage'} // Top x-axis.
             }
           },
-          bar: { groupWidth: "90%" }
+          bar: { groupWidth: "90%" },
+          hAxis: { ticks: [{v:0, f:'Very unhappy'}, {v:33.33, f:'Somewhat unhappy'}, {v:66.66, f:'Somewhat happy'}, {v:100, f:'Very happy'}],
+          	   format: 'percent' }
         };
 
         var chart = new google.visualization.BarChart(document.getElementById('top_x_div'));
