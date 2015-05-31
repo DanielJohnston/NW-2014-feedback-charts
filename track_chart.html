@@ -2,7 +2,7 @@
   <head>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
-      google.load("visualization", "1.1", {packages:["bar"]});
+      google.load("visualization", "1.1", {packages:["corechart"]});
       google.setOnLoadCallback(drawStuff);
 
       function drawStuff() {
@@ -47,12 +47,12 @@
         ]);
 
         var options = {
-          title: 'Chess opening moves',
+          title: 'Track feedback',
           width: 900,
           legend: { position: 'none' },
           chart: { title: 'Track feedback',
                    subtitle: 'Percent happiness' },
-          bars: 'horizontal', // Required for Material Bar Charts.
+          bars: 'vertical', // Required for Material Bar Charts.
           axes: {
             x: {
               0: { side: 'top', label: 'Percentage'} // Top x-axis.
@@ -61,7 +61,7 @@
           bar: { groupWidth: "90%" }
         };
 
-        var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+        var chart = new google.visualization.BarChart(document.getElementById('top_x_div'));
         chart.draw(data, options);
       };
     </script>
