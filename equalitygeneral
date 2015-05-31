@@ -1,0 +1,41 @@
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawStuff);
+      function drawStuff() {
+        var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Area'); // Implicit domain label col.
+		data.addColumn('number', 'Happiness'); // Implicit series 1 data col.
+		data.addColumn({type:'number', role:'interval'});  // interval role col.
+		data.addColumn({type:'number', role:'interval'});  // interval role col.
+		data.addColumn({type:'string', role:'style'});
+		data.addRows([
+  ["Your particular fandom or geek interests", 86, 80, 92, ''  ],
+  ["The welcome you received or befriending events you attended", 88, 81, 95, ''  ],
+  ["Your age", 92, 86, 98, ''  ],
+  ["Your ethnicity", 96, 89, 103, ''  ],
+  ["Your disability status", 95, 87, 103, ''  ],
+  ["Your gender", 95, 88, 102, ''  ],
+  ["Your trans status", 97, 87, 107, ''  ],
+  ["Your sexuality", 95, 88, 102, ''  ],
+  ["The cost of attendance", 84, 78, 90, ''  ],
+  ["Section average", 92, 85, 99, '#76B0DE'  ]
+        ]);
+        var options = {
+          width: 900,
+          legend: { position: 'none' },
+          bars: 'vertical', // Required for Material Bar Charts.
+          axes: {
+            x: {
+              0: { side: 'top', label: 'Percentage'} // Top x-axis.
+            }
+          },
+          bar: { groupWidth: "90%" },
+          hAxis: { ticks: [{v:0, f:'Very unhappy'}, {v:33.33, f:'Somewhat unhappy'}, {v:66.66, f:'Somewhat happy'}, {v:100, f:'Very happy'}],
+          	   format: 'percent' }
+        };
+        var chart = new google.visualization.BarChart(document.getElementById('equalitygeneral'));
+        chart.draw(data, options);
+      };
+    </script>
+
+    <div id="equalitygeneral" style="width: 900px; height: 900px;"></div>
