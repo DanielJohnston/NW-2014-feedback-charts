@@ -4,44 +4,22 @@
       google.setOnLoadCallback(drawStuff);
       function drawStuff() {
         var data = new google.visualization.DataTable()
-		data.addColumn('string', 'Track'); // Implicit domain label col.
+		data.addColumn('string', 'Area'); // Implicit domain label col.
 		data.addColumn('number', 'Happiness'); // Implicit series 1 data col.
 		data.addColumn({type:'number', role:'interval'});  // interval role col.
 		data.addColumn({type:'number', role:'interval'});  // interval role col.
 		data.addColumn({type:'string', role:'style'});
 		data.addRows([
-  ["Ents",76,69,83,''  ],
-  ["Kids programme",79,68,90,''  ],
-  ["Signings",77,67,87,''  ],
-  ["Vendors",71,64,78,''  ],
-  ["ASOIAF",82,71,93,''  ],
-  ["Academic talks",84,76,92,'' ],
-  ["All of the Books",86,78,94,''  ],
-  ["Comics",81,72,90,''  ],
-  ["Cosplay sessions",83,72,94,''  ],
-  ["Creative Writing",81,71,91,''  ],
-  ["Doctor Who",82,73,91,''  ],
-  ["Fanfic",81,72,90,''  ],
-  ["Film festival",79,69,89,''  ],
-  ["Food geekery",80,70,90,''  ],
-  ["Future tech",84,75,93,''  ],
-  ["GoT TV show",78,67,89,''  ],
-  ["Geek feminism",88,80,96,''  ],
-  ["Knitting",75,64,86,'' ],
-  ["LARP role play",76,64,88,''  ],
-  ["LGBTQAI fandom",84,75,93,''  ],
-  ["Podcasting",80,67,93,''  ],
-  ["Race and culture",86,76,96,''  ],
-  ["Retro fandom",78,65,91,''  ],
-  ["Storygasm Role Play",80,68,92,''  ],
-  ["Royal Observatory",86,76,96,''  ],
-  ["Skepticism",81,71,91,''  ],
-  ["Social gaming",83,72,94,''  ],
-  ["Steampunk",82,72,92,''  ],
-  ["Video Games culture",80,69,91,''  ],
-  ["Whedon",82,73,91,''  ],
-  ["Choice of tracks",88,82,94,'silver'  ],
-  ["Average",81,72,90,'green'  ]
+  ["Area", "Happiness", "Lower margin", "Upper margin"  ],
+  ["Session content", 91, 85, 97  ],
+  ["Session moderation", 83, 77, 89  ],
+  ["Choice of sessions", 88, 82, 94  ],
+  ["Match of room size and session popularity", 70, 64, 76  ],
+  ["Length of sessions", 87, 81, 93  ],
+  ["Gaps between sessions", 83, 77, 89  ],
+  ["Schedule planning support", 85, 79, 91  ],
+  ["Schedule information and session descriptions", 83, 77, 89  ],
+  ["Section average", 84, 78, 90  ]
         ]);
         var options = {
           title: 'Track feedback',
