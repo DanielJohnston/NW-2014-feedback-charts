@@ -1,0 +1,82 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Area'); // Implicit domain label col.
+		data.addColumn('number', 'Happiness'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+	  ["Session content", 91, 85, 97, '#76B0DE'  ],
+	  ["Session moderation", 83, 77, 89, '#76B0DE'  ],
+	  ["Choice of sessions", 88, 82, 94, '#76B0DE'  ],
+	  ["Match of room sizes", 70, 64, 76, '#76B0DE'  ],
+	  ["Length of sessions", 87, 81, 93, '#76B0DE'  ],
+	  ["Session gaps", 83, 77, 89, '#76B0DE'  ],
+	  ["Schedule planning", 85, 79, 91, '#76B0DE'  ],
+	  ["Schedule information", 83, 77, 89, '#76B0DE'  ],
+	  ["Section average", 84, 78, 90, ''  ]
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 30;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight-paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+				ticks: [{
+					v: 0,
+					f: 'Very unhappy'
+				}, {
+					v: 33.33,
+					f: 'Somewhat unhappy'
+				}, {
+					v: 66.66,
+					f: 'Somewhat happy'
+				}, {
+					v: 100,
+					f: 'Very happy'
+				}],
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('equalitywelcome'));
+		chart.draw(data, options);
+	};
+</script>
+<div class="visualization_wrap">
+	<div class="visualization">
+		<div id="equalitywelcome" style="width: 100%"></div>
+	</div>
+</div>
+argh

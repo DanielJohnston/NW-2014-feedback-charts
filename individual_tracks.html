@@ -1,0 +1,105 @@
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Area'); // Implicit domain label col.
+		data.addColumn('number', 'Happiness'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+			["Ents",76,69,83, '#76B0DE'  ],
+		  ["Kids programme",79,68,90, '#76B0DE'  ],
+		  ["Signings",77,67,87, '#76B0DE'  ],
+		  ["Vendors",71,64,78, '#76B0DE'  ],
+		  ["ASOIAF",82,71,93, '#76B0DE'  ],
+		  ["Academic talks",84,76,92, '#76B0DE' ],
+		  ["All of the Books",86,78,94, '#76B0DE'  ],
+		  ["Comics",81,72,90, '#76B0DE'  ],
+		  ["Cosplay sessions",83,72,94, '#76B0DE'  ],
+		  ["Creative Writing",81,71,91, '#76B0DE'  ],
+		  ["Doctor Who",82,73,91, '#76B0DE'  ],
+		  ["Fanfic",81,72,90, '#76B0DE'  ],
+		  ["Film festival",79,69,89, '#76B0DE'  ],
+		  ["Food geekery",80,70,90, '#76B0DE'  ],
+		  ["Future tech",84,75,93, '#76B0DE'  ],
+		  ["GoT TV show",78,67,89, '#76B0DE'  ],
+		  ["Geek feminism",88,80,96, '#76B0DE'  ],
+		  ["Knitting",75,64,86, '#76B0DE' ],
+		  ["LARP role play",76,64,88, '#76B0DE'  ],
+		  ["LGBTQAI fandom",84,75,93, '#76B0DE'  ],
+		  ["Podcasting",80,67,93, '#76B0DE'  ],
+		  ["Race and culture",86,76,96, '#76B0DE'  ],
+		  ["Retro fandom",78,65,91, '#76B0DE'  ],
+		  ["Storygasm Role Play",80,68,92, '#76B0DE'  ],
+		  ["Royal Observatory",86,76,96, '#76B0DE'  ],
+		  ["Skepticism",81,71,91, '#76B0DE'  ],
+		  ["Social gaming",83,72,94, '#76B0DE'  ],
+		  ["Steampunk",82,72,92, '#76B0DE'  ],
+		  ["Video Games culture",80,69,91, '#76B0DE'  ],
+		  ["Whedon",82,73,91, '#76B0DE'  ],
+		  ["Choice of tracks",88,82,94,'#8D1833'  ],
+		  ["Average",81,72,90,''  ]
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 20;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight-paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+				ticks: [{
+					v: 0,
+					f: 'Very unhappy'
+				}, {
+					v: 33.33,
+					f: 'Somewhat unhappy'
+				}, {
+					v: 66.66,
+					f: 'Somewhat happy'
+				}, {
+					v: 100,
+					f: 'Very happy'
+				}],
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('equalitywelcome'));
+		chart.draw(data, options);
+	};
+</script>
+<div class="visualization_wrap">
+	<div class="visualization">
+		<div id="equalitywelcome" style="width: 100%"></div>
+	</div>
+</div>
+argh
