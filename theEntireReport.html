@@ -903,9 +903,147 @@ This explored people's feelings about where Nine Worlds 2014 was held: how easy 
 
 <h3 id="equality-age">Age inclusion</h3>
 We asked people their age in years. To maintain privacy and show overall patterns, we've summarised age by decade as follows:
-GRAPH
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Age group'); // Implicit domain label col.
+		data.addColumn('number', 'Proportion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["0-9", 0, '#76B0DE'],
+      ["10-19", 0.5/100, '#76B0DE'],
+      ["20-29", 30.9/100, '#76B0DE'],
+      ["30-39", 39.5/100, '#76B0DE'],
+      ["40-49", 12.7/100, '#76B0DE'],
+      ["50-59", 5.5/100, '#76B0DE'],
+      ["60-69", .5/100, '#76B0DE'],
+      ["70-79", 0, '#76B0DE'],
+      ["80-89", 0, '#76B0DE'],
+      ["90-99", 0, '#76B0DE'],
+      ["Age left blank", 10.5/100, '#76B0DE'],
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('agesplit'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="agesplit" style="width: 100%;"></div>
+
 We also asked people how included or excluded by Nine Worlds they felt with regard to their age. Broken down by age group, the inclusion scores are as follows:
-GRAPH
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Age group'); // Implicit domain label col.
+		data.addColumn('number', 'Inclusion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["0-9", 0, 0, 0, '#76B0DE'],
+      ["10-19", 0, 0, 0, '#76B0DE'],
+      ["20-29", 95, 83, 100, '#76B0DE'],
+      ["30-39", 94, 84, 100, '#76B0DE'],
+      ["40-49", 82, 63, 100, '#76B0DE'],
+      ["50-59", 79, 50, 100, '#76B0DE'],
+      ["60-69", 67, 0, 100, '#76B0DE'],
+      ["70-79", 0, 0, 0, '#76B0DE'],
+      ["80-89", 0, 0, 0, '#76B0DE'],
+      ["90-99", 0, 0, 0, '#76B0DE'],
+      ["Age left blank", 96, 72, 100, '#76B0DE'],
+      ["Question average",92,,, ''],
+      ["Section average",92,,, '']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+				ticks: [{
+					v: 0,
+					f: 'Very excluded'
+				}, {
+					v: 33.33,
+					f: 'Somewhat excluded'
+				}, {
+					v: 66.66,
+					f: 'Somewhat included'
+				}, {
+					v: 100,
+					f: 'Very included'
+				}],
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('equalityage'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="equalityage" style="width: 100%;"></div>
+
 <h4>Comments on age inclusion</h4>
 <blockquote>As the average age was young - no bad thing - I felt slightly uneasy being an old git, but that prob says more about me than 9W!</blockquote>
 <blockquote>Though I felt included I did feel the con was aimed at a younger demographic and there certainly did not seem to be any 55+ around that I could see.</blockquote>
@@ -917,12 +1055,152 @@ GRAPH
 
 <h3 id="equality-ethnicity">Ethnicity / race inclusion</h3>
 The survey asked respondents to identify their ethnicity by ONS super-category. Subcategories were not requested as the likely number of respondents would not have given statistically significant results at that level. However, an option to self-identify was also included. The resulting ethnic representation was as follows, with super-categories marked by a *:
-[GRAPH]
+
+
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Ethnicity'); // Implicit domain label col.
+		data.addColumn('number', 'Proportion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["*Asian / Asian British", 0.90/100, '#76B0DE'],
+      ["*Black / African / Caribbean / Black British", 1.80/100, '#76B0DE'],
+      ["*Mixed / Multiple ethnic groups", 5.00/100, '#76B0DE'],
+      ["Other British/Irish Irish/English I would prefer European", 0.50/100, '#76B0DE'],
+      ["Other Roma", 0.50/100, '#76B0DE'],
+      ["Other White Irish - we discussed it in one of the sessions :)", 0.50/100, '#76B0DE'],
+      ["*White", 83.20/100, '#76B0DE'],
+      ["White Irish", 0.50/100, '#76B0DE'],
+      ["White Pākeha.", 0.50/100, '#76B0DE'],
+      ["White Pakeha/New Zealander", 0.50/100, '#76B0DE'],
+      ["I prefer not to say. NB. White is a colour, not an ethnic group.", 0.50/100, '#76B0DE'],
+      ["Ethnicity left blank", 5.90/100, '#76B0DE']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('ethnicitysplit'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="ethnicitysplit" style="width: 100%;"></div>
+
+
 Per ONS super-category, this is how included people from different ethnicities felt with regard to their ethnicity:
-[GRAPH]
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'ONS super-category'); // Implicit domain label col.
+		data.addColumn('number', 'Inclusion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["Asian / Asian British", 67, 0, 100, '#76B0DE'],
+      ["Black / African / Caribbean / Black British", 75, 26, 100, '#76B0DE'],
+      ["Mixed / Multiple ethnic groups", 97, 66, 100, '#76B0DE'],
+      ["Other", 56, 0, 100, '#76B0DE'],
+      ["White", 98, 91, 100, '#76B0DE'],
+      ["Left blank", 100, 65, 100, '#76B0DE'],
+      ["Question average", 96,,, ''],
+      ["Section average", 92,,, '']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+				ticks: [{
+					v: 0,
+					f: 'Very excluded'
+				}, {
+					v: 33.33,
+					f: 'Somewhat excluded'
+				}, {
+					v: 66.66,
+					f: 'Somewhat included'
+				}, {
+					v: 100,
+					f: 'Very included'
+				}],
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('equalityethnicity'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="equalityethnicity" style="width: 100%;"></div>
+
+
 It's worth noting that this chart has a very high margin of error, statistically speaking, as the number of respondents from ethnicities other than 'white' and 'mixed / multiple ethnic groups' was below normal thresholds for statistically significant results. However, we wanted to represent this feedback regardless, as it would be unfair to ignore views from groups that were too small.
 <h4>Comments on race and ethnicity inclusion</h4>
-<blockquote>ethnicity is a strange one. It wasn't necessarily anything the organisers could have done. Everyone was very friendly but certain panels/people made me feel an 'other'. it wasn't deliberate but maybe  track organisers could be reminded  with their use of language and 'whiteknighting'. Being expected to have an [opinion on something] because of my ethnicity was also annoying (only happened once )</blockquote>
+<blockquote>ethnicity is a strange one. It wasn't necessarily anything the organisers could have done. Everyone was very friendly but certain panels/people made me feel an 'other'. it wasn't deliberate but maybe  track organisers could be reminded  with their use of language and 'whiteknighting'. Being expected to have an [opinion on something] because of my ethnicity was also annoying (only happened once)</blockquote>
 <blockquote>It was so great talking about being a black woman gamer and seeing people nod when I pointed out all the problems of representation that I face. It's a really lefty, feminist/social justice crowd and it was awesome.</blockquote>
 <blockquote>Race and Culture and LGBTQAI tracks were great, but thinking about those issues would have improved the other tracks immeasurably.</blockquote>
 <blockquote>Also I would have liked to have seen more P.O.C. on the panels, any of the panels.</blockquote>
@@ -934,10 +1212,133 @@ It's worth noting that this chart has a very high margin of error, statistically
 
 <h3 id="equality-disability">Disability inclusion</h3>
 The survey asked respondents to identify if they were disabled. There is potential for error here as a number of people did not complete this section, meaning that 'not identified disabled' is not the same thing as 'not disabled'. However, the results were as follows:
-[GRAPH]
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Disabled status'); // Implicit domain label col.
+		data.addColumn('number', 'Proportion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["Identified disabled", 11.4/100, '#76B0DE'],
+      ["Not identified disabled", 88.6/100, '#76B0DE']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('disabilitysplit'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="disabilitysplit" style="width: 100%;"></div>
+
 Per disability status, this is how included respondents felt with regard to their disability status:
-[GRAPH]
-<h4>Comments on race and ethnicity inclusion</h4>
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Disability status'); // Implicit domain label col.
+		data.addColumn('number', 'Inclusion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["Identified disabled", 86, 66, 100, '#76B0DE'],
+      ["Not identified disabled", 97, 88, 100, '#76B0DE'],
+      ["Question average", 95,,, ''],
+      ["Section average", 92,,, '']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+				ticks: [{
+					v: 0,
+					f: 'Very excluded'
+				}, {
+					v: 33.33,
+					f: 'Somewhat excluded'
+				}, {
+					v: 66.66,
+					f: 'Somewhat included'
+				}, {
+					v: 100,
+					f: 'Very included'
+				}],
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('equalitydisability'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="equalitydisability" style="width: 100%;"></div>
+
+
+<h4>Comments on disability inclusion</h4>
 <blockquote>A disability track would be a great addition.</blockquote>
 <blockquote>Thank you for the reserved seating that was particularity useful  for me as i have wlakign difficulties</blockquote>
 <blockquote>I have an invisible disability - chronic pain in my joints particularly my shoulders which affects how long I can stand and my endurance. I'm young and female and often get glares on eg public transport for sitting in the disabled seats, and often hurt myself trying to pretend to be able bodied just to avoid the condemnation. I was so, so touched when people would give up their chairs for me no questions asked at sessions where they were short, and at the signs that reminded people not all disability is visible. I still didn't feel able to sit in the 'priority seating' - silly I know - due to my hang ups over being told off for that sort of thing in the past, though I don't really know what could be done about that!</blockquote>
@@ -948,11 +1349,90 @@ Per disability status, this is how included respondents felt with regard to thei
 
 <h4>Organiser response</h4>
 
-[RESPONSE REQUIRED HERE]
 
 <h3 id="equality-gsm">Gender, sexuality, trans status inclusion</h3>
 Respondents were given a selection of tick boxes and a free text box to identify by. All of the free text responses were unique, except for 'Asexual'. The results were as follows:
-[GRAPH]
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Gender, sexuality, trans status'); // Implicit domain label col.
+		data.addColumn('number', 'Proportion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["Female", 49.50/100, '#76B0DE'],
+      ["Heterosexual", 40.00/100, '#76B0DE'],
+      ["Cis", 36.40/100, '#76B0DE'],
+      ["Male", 27.30/100, '#76B0DE'],
+      ["Bisexual", 22.70/100, '#76B0DE'],
+      ["Queer", 18.20/100, '#76B0DE'],
+      ["Trans", 6.40/100, '#76B0DE'],
+      ["Genderqueer", 5.50/100, '#76B0DE'],
+      ["Gay", 4.10/100, '#76B0DE'],
+      ["Lesbian", 3.60/100, '#76B0DE'],
+      ["Asexual", 2.70/100, '#76B0DE'],
+      ["Asexual spectrum", 0.50/100, '#76B0DE'],
+      ["Bigger Badges. Better reason for CIS people to wear them", 0.50/100, '#76B0DE'],
+      ["demisexual", 0.50/100, '#76B0DE'],
+      ["Gender ambivalent (People are personalities wrapped in whatever body/socialising, neither my opinion nor desires care)", 0.50/100, '#76B0DE'],
+      ["Gender neutral", 0.50/100, '#76B0DE'],
+      ["Genderfluid", 0.50/100, '#76B0DE'],
+      ["Hetero Demisexual", 0.50/100, '#76B0DE'],
+      ["Heteroflexible", 0.50/100, '#76B0DE'],
+      ["Hetroflexible", 0.50/100, '#76B0DE'],
+      ["Homoflexible, transsexual", 0.50/100, '#76B0DE'],
+      ["I don't really want to be asked to define myself by gender and sexuality", 0.50/100, '#76B0DE'],
+      ["I have asperger's syndrome and found no issues as a result of it.", 0.50/100, '#76B0DE'],
+      ["I have mental health difficulties, but don't consider myself disabled", 0.50/100, '#76B0DE'],
+      ["I prefer not to say. NB the term cis is disparaging", 0.50/100, '#76B0DE'],
+      ["Neutrois, Non-binary, Mental.", 0.50/100, '#76B0DE'],
+      ["Non-binary Trans", 0.50/100, '#76B0DE'],
+      ["Non-binary/agender, but female sexed", 0.50/100, '#76B0DE'],
+      ["Older", 0.50/100, '#76B0DE'],
+      ["predominantly human - the rest is details.", 0.50/100, '#76B0DE'],
+      ["Really liked the colour-coded clips, they were so helpful when I had social anxiety on Friday evening.", 0.50/100, '#76B0DE']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('gsmsplit'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="gsmsplit" style="width: 100%;"></div>
+
+
 We asked about people's experience of their inclusion with regard to gender, trans status and sexuality as separate questions, and have presented a breakdown of results for each, split by gender / sexuality / trans status. This gives somewhat more involved results than other sections, as there are numerous interacting responses. We haven't calculated figures for the intersection of statuses and identities, partly for reasons of privacy, partly because the numbers involved would preclude statistical significance. We've also calculated inclusion rating for fandom or geek interests broken down by gender / sexuality / trans status, just out of interest.
 Some notes:
 <ul>
@@ -962,13 +1442,341 @@ Some notes:
 </ul>
 
 <h4>Did you feel included or excluded by Nine Worlds with regard to your <strong>gender</strong>:</h4>
-[CHART]
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Gender, sexuality, trans status'); // Implicit domain label col.
+		data.addColumn('number', 'Inclusion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["Lesbian", 92, 57, 100, '#76B0DE'],
+      ["Gay", 93, 60, 100, '#76B0DE'],
+      ["Bisexual", 97, 83, 100, '#76B0DE'],
+      ["Heterosexual", 94, 83, 100, '#76B0DE'],
+      ["Trans", 95, 69, 100, '#76B0DE'],
+      ["Cis", 95, 84, 100, '#76B0DE'],
+      ["Queer", 95, 80, 100, '#76B0DE'],
+      ["Male", 92, 79, 100, '#76B0DE'],
+      ["Female", 97, 88, 100, '#76B0DE'],
+      ["Genderqueer", 97, 69, 100, '#76B0DE'],
+      ["Other – Asexual*", 100, 63, 100, '#76B0DE'],
+      ["Other – Various", 95, 76, 100, '#76B0DE'],
+      ["Section average", 92,,, '']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+				ticks: [{
+					v: 0,
+					f: 'Very excluded'
+				}, {
+					v: 33.33,
+					f: 'Somewhat excluded'
+				}, {
+					v: 66.66,
+					f: 'Somewhat included'
+				}, {
+					v: 100,
+					f: 'Very included'
+				}],
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('equalitygender'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="equalitygender" style="width: 100%;"></div>
+
 <h4>Did you feel included or excluded by Nine Worlds with regard to your <strong>trans status</strong>:</h4>
-[CHART]
+
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Gender, sexuality, trans status'); // Implicit domain label col.
+		data.addColumn('number', 'Inclusion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["Lesbian", 100, 51, 100, '#76B0DE'],
+      ["Gay", 87, 43, 100, '#76B0DE'],
+      ["Bisexual", 94, 76, 100, '#76B0DE'],
+      ["Heterosexual", 96, 77, 100, '#76B0DE'],
+      ["Trans", 93, 62, 100, '#76B0DE'],
+      ["Cis", 96, 80, 100, '#76B0DE'],
+      ["Queer", 98, 77, 100, '#76B0DE'],
+      ["Male", 95, 76, 100, '#76B0DE'],
+      ["Female", 97, 82, 100, '#76B0DE'],
+      ["Genderqueer", 100, 65, 100, '#76B0DE'],
+      ["Other – Asexual*", 100, 31, 100, '#76B0DE'],
+      ["Other – Various", 94, 66, 100, '#76B0DE'],
+      ["Section average", 92,,, '']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+				ticks: [{
+					v: 0,
+					f: 'Very excluded'
+				}, {
+					v: 33.33,
+					f: 'Somewhat excluded'
+				}, {
+					v: 66.66,
+					f: 'Somewhat included'
+				}, {
+					v: 100,
+					f: 'Very included'
+				}],
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('equalitytrans'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="equalitytrans" style="width: 100%;"></div>
+
+
 <h4>Did you feel included or excluded by Nine Worlds with regard to your <strong>sexuality</strong>:</h4>
-[CHART]
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Gender, sexuality, trans status'); // Implicit domain label col.
+		data.addColumn('number', 'Inclusion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["Lesbian", 100, 65, 100, '#76B0DE'],
+      ["Gay", 89, 56, 100, '#76B0DE'],
+      ["Bisexual", 95, 81, 100, '#76B0DE'],
+      ["Heterosexual", 94, 81, 100, '#76B0DE'],
+      ["Trans", 95, 69, 100, '#76B0DE'],
+      ["Cis", 94, 82, 100, '#76B0DE'],
+      ["Queer", 96, 81, 100, '#76B0DE'],
+      ["Male", 91, 76, 100, '#76B0DE'],
+      ["Female", 95, 85, 100, '#76B0DE'],
+      ["Genderqueer", 97, 69, 100, '#76B0DE'],
+      ["Other – Asexual*", 95, 58, 100, '#76B0DE'],
+      ["Other – Various", 93, 70, 100, '#76B0DE'],
+      ["Section average", 92,,, '']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+				ticks: [{
+					v: 0,
+					f: 'Very excluded'
+				}, {
+					v: 33.33,
+					f: 'Somewhat excluded'
+				}, {
+					v: 66.66,
+					f: 'Somewhat included'
+				}, {
+					v: 100,
+					f: 'Very included'
+				}],
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('equalitysexuality'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="equalitysexuality" style="width: 100%;"></div>
+
+
 <h4>Did you feel included or excluded by Nine Worlds with regard to your <strong>particular fandom or geek interests</strong>:</h4>
-[CHART]
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Gender, sexuality, trans status'); // Implicit domain label col.
+		data.addColumn('number', 'Inclusion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["Lesbian", 83, 48, 100, '#76B0DE'],
+      ["Gay", 78, 45, 100, '#76B0DE'],
+      ["Bisexual", 86, 72, 100, '#76B0DE'],
+      ["Heterosexual", 86, 76, 96, '#76B0DE'],
+      ["Trans", 88, 62, 100, '#76B0DE'],
+      ["Cis", 87, 76, 98, '#76B0DE'],
+      ["Queer", 85, 70, 100, '#76B0DE'],
+      ["Male", 86, 73, 99, '#76B0DE'],
+      ["Female", 86, 77, 95, '#76B0DE'],
+      ["Genderqueer", 88, 59, 100, '#76B0DE'],
+      ["Other – Asexual*", 76, 39, 100, '#76B0DE'],
+      ["Other – Various", 83, 60, 100, '#76B0DE'],
+      ["Section average", 92,,, '']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+				ticks: [{
+					v: 0,
+					f: 'Very excluded'
+				}, {
+					v: 33.33,
+					f: 'Somewhat excluded'
+				}, {
+					v: 66.66,
+					f: 'Somewhat included'
+				}, {
+					v: 100,
+					f: 'Very included'
+				}],
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('equalitygsmfandom'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="equalitygsmfandom" style="width: 100%;"></div>
+
+
 <h4>Comments on gender, sexuality, trans status inclusion</h4>
 <blockquote>I'm white, cis able-bodied female so I can't give you much inclusion data for other things, but for gender I felt that in the panels and talks I went to, the positive lack of sexism and inclusion and respect for female voices in my fandoms (which are quite male-dominated - video games and comics) was an immense relief and a really encouraging experience.</blockquote>
 <blockquote>The pronoun badges are a great idea. There needs to be much more of them, though - I know several trans women who were unable to get one, as they ran out of 'she' very early on. Having them reserved for trans people would not be a solution - it marks out trans people and without a critical mass of people wearing them nobody looks for them. I also appreciated the communication preference clips. The moderation guidelines on not gendering audience members etc. was really useful, but somewhat patchily followed. Especially in the sessions which were not formal panels [...] the presenters appeared to have no idea of several of the guidelines. I was happy to see straight white cis men as the minority in all of the panels I attended.</blockquote>
@@ -985,20 +1793,210 @@ Some notes:
 
 <h3 id="equality-children">Parents and children inclusion</h3>
 There was no inclusion question asking whether people felt included or excluded by Nine Worlds with regard to their parental responsibility. However, there was a question asking whether people had childcare responsibilities. The results were as follows:
-[GRAPH]
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Childcare status'); // Implicit domain label col.
+		data.addColumn('number', 'Proportion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["I did not have childcare responsibilities at Nine Worlds", 86/100, '#76B0DE'],
+      ["I had childcare responsibilities at Nine Worlds", 5/100, '#76B0DE'],
+      ["Childcare left blank", 9/100, '#76B0DE']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('guardiansplit'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="guardiansplit" style="width: 100%;"></div>
+
 It would be possible to calculate an average of other inclusion scores across the section for those with and without parental status, but we have not done this as there are too many confounding factors. Our apologies for the lack of a proper parental inclusion question this time round - we will include this in next year's feedback form. In the meantime, the nearest proxy is the happiness score for the 'Kids programme' track:
-[GRAPH]
+
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Track'); // Implicit domain label col.
+		data.addColumn('number', 'Happiness'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+			["Kids programme", 79, 68, 90, '#76B0DE'],
+			["Average", 81, 72, 90, '']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+				ticks: [{
+					v: 0,
+					f: 'Very unhappy'
+				}, {
+					v: 33.33,
+					f: 'Somewhat unhappy'
+				}, {
+					v: 66.66,
+					f: 'Somewhat happy'
+				}, {
+					v: 100,
+					f: 'Very happy'
+				}],
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('kidscores'));
+		chart.draw(data, options);
+	};
+</script>
+
+
+		<div id="kidscores" style="width: 100%;"></div>
+
 <h4>Comments on parent & child inclusion</h4>
 <blockquote>[This refers to the lack of a parental inclusion question] Also, status as a parent should be listed above.</blockquote>
 <h4>Organiser response</h4>
 There were comments on the quality of the kids programme and the venue's suitability for children in other sections of the survey, but no other comments in the inclusion section.
-
+[INCLUDE SOME COMMENTS ABOUT KIDS TRACK HERE?]
 [RESPONSE REQUIRED HERE]
 
 <h3 id="equality-cost">Affordability inclusion</h3>
 Did you feel included or excluded by Nine Worlds with regard to the cost of attendance:
 
-[GRAPH]
+<script type="text/javascript">
+	google.load("visualization", "1.1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(drawStuff);
+
+	function drawStuff() {
+		var data = new google.visualization.DataTable()
+		data.addColumn('string', 'Inclusion issue'); // Implicit domain label col.
+		data.addColumn('number', 'Inclusion'); // Implicit series 1 data col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'number',
+			role: 'interval'
+		}); // interval role col.
+		data.addColumn({
+			type: 'string',
+			role: 'style'
+		});
+		data.addRows([
+      ["Cost of attendance", 84, 78, 90, '#76B0DE'],
+      ["Section average", 92,,, '']
+		]);
+
+		// set a padding value to cover the height of title and axis values
+		var paddingHeight = 40;
+		// set the height to be covered by the rows
+		var rowHeight = data.getNumberOfRows() * 30;
+		// set the total chart height
+		var chartHeight = rowHeight + paddingHeight;
+
+		var options = {
+			chartArea: {
+				top: 0,
+				height: chartHeight - paddingHeight,
+				left: '25%',
+				width: '70%'
+			},
+			width: "100%",
+			height: chartHeight,
+			legend: {
+				position: 'none'
+			},
+			hAxis: {
+				ticks: [{
+					v: 0,
+					f: 'Very excluded'
+				}, {
+					v: 33.33,
+					f: 'Somewhat excluded'
+				}, {
+					v: 66.66,
+					f: 'Somewhat included'
+				}, {
+					v: 100,
+					f: 'Very included'
+				}],
+				format: 'percent'
+			}
+		};
+		var chart = new google.visualization.BarChart(document.getElementById('equalityaffordability'));
+		chart.draw(data, options);
+	};
+</script>
+
+<div id="equalityaffordability" style="width: 100%;"></div>
 
 <h4>Comments on affordability inclusion</h4>
 <blockquote>Membership is expensive</blockquote>
@@ -1047,13 +2045,13 @@ Our access coordinator was hoping to gather together further information on peop
 <ul>
 	<li>To maintain respondent anonymity, the original response data is not included in this report.
 	</li>
-	<li>Instead, we present collated information and representative comments taken both from the feedback form and from feedback emails and public blog posts.
+	<li>Instead, we present collated information and representative comments taken from the feedback form.
 	</li>
-	<li>A screenshot of the survey form and its accompanying instructions is available as an image attachment at the end of this report.
+	<li><a href="/sites/nineworlds.co.uk/files/file_uploads/2014%20Feedback%20form%20screenshot.png">A screenshot of the survey form and its accompanying instructions is available as an image attachment</a>.
 	</li>
 	<li><a href="https://docs.google.com/spreadsheets/d/1ymQtUBemX4OAFwME-ex36P0kPhWxR93i9fu3HhIkhjc/pubhtml">The numeric data used in building the charts is available as a Google sheet</a>.
 	</li>
-	<li>The selection of survey questions builds on themes identified in last year's feedback report, which used free answer text boxes with sentiment analysis.
+	<li>The selection of survey questions builds on themes identified in <a href="/2013/feedback-report">last year's feedback report</a>, which used free answer text boxes with sentiment analysis.
 	</li>
 	<li>Many questions used a forced Likert scale, with the option to not reply if the responder didn't have a view or didn't wish to answer. In the statistical analysis, we've made the slightly dubious assumption that these can be represented by equidistant numerical values in order to derive an 'average' response.
 	</li>
@@ -1073,6 +2071,7 @@ A number of people commented on the survey design:
 <blockquote>NB. only attended Books/Creative Writing/Film tracks so entered 'Somewhat Happy' for everything else -- your survey needs a 'Did Not Attend' option; also, whilst we are on the subject, this is the 2nd time I have tried to fill in this comments section and the box is really REALLY awkward to type into and check back over your statement (YOU try it and see!); if you accidentally hit the X everything you have typed is instantly deleted -- BOO!</blockquote>
 <h4 id="survey-response">Organiser response</h4>
 <p>The most common issue was the lack of a middle option or a 'no opinion' option in the Likert scale questions. The survey instructions asked people to ignore questions they had no views on, but this was occasionally missed. There were also some user interface issues that stymied a few respondents.</p>
+<p>During analysis, we also ran into issues with the measurement of parent/child inclusion, and the proportion of people with disabilities, owing to errors in survey design.</p>
 <p>From an organiser perspective, there were operational issues that make the current feedback approach unsustainable. In the first year, an external professional carried out the work, under a somewhat different survey approach. The amount of work proved onerous, hence taking a Likert scale approach with small text boxes in the second year. There was no word limit on the the text boxes, however, and people contributed more than 60 A4 pages of text feedback that required breaking down into around 60 subject areas. The amount of work involved was outside our budget and the capacity of external workers, so one of our organisers had to volunteer full time for several weeks, analysing and summarising the results. The delay in producing final feedback also makes it less valuable, as some of our 2015 plans had to go ahead without taking account of the survey feedback.</p>
 <p>While we remain committed to understanding and responding to the experiences of attendees, the survey in its present form is unrepeatable. We're open to suggestions at feedback@nineworlds.co.uk, with current options for 2015 feedback including:</p>
 <ul>
